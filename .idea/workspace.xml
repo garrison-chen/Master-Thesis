@@ -9,10 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alignment-free-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/Alignment-free-tools.html" afterDir="false" />
-    </list>
+    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +63,7 @@
       <workItem from="1621521359001" duration="394000" />
       <workItem from="1621622541084" duration="3635000" />
       <workItem from="1621767267617" duration="1335000" />
-      <workItem from="1625061551943" duration="1302000" />
+      <workItem from="1625061551943" duration="1627000" />
     </task>
     <servers />
   </component>
