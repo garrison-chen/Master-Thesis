@@ -1,0 +1,306 @@
+
+<html>
+<head>
+    <title>Data Structures and Basic Operations</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        var target = null;
+        var over = null;
+        $(document).ready(function() {
+            $(".hint").click(function(event) {
+                if( over != null ) {
+                    over.children('.hintt').css('visibility','');
+                    over = null;
+                }
+                if( target != null && (target.is(event.target) || target.children().is(event.target)) ) {
+                    event.stopPropagation();
+                    return;
+                }
+                if( target != null ) {
+                    target.children('.hintt').css('visibility','');
+                }
+                target = $(event.target);
+                target.children('.hintt').css('visibility','visible');
+                event.stopPropagation();
+            });
+            $(document).click(function(event) {
+                if( over != null ) {
+                    over.children('.hintt').css('visibility','');
+                    over = null;
+                }
+                if( target != null && !target.is(event.target) && !target.children().is(event.target) ) {
+                    target.children('.hintt').css('visibility','');
+                    target = null;
+                }
+            });
+            $(".hint").mouseover(function(event) {
+                if( over != null ) {
+                    over.children('.hintt').css('visibility','');
+                    over = null;
+                }
+                if( target != null && !target.is(event.target) && !target.children().is(event.target) ) {
+                    over = $(event.target);
+                    over.children('.hintt').css('visibility','hidden');
+                }
+                /*if( target != null && !target.is(event.target) && !target.children().is(event.target) ) {
+                    target.children('.hintt').css('visibility','');
+                    target = null;
+                }*/
+            });
+        });
+    </script>
+
+    <style>
+
+        body {
+            font-family:Georgia, serif;
+            font-size:12pt;
+            margin-left:10px;
+            margin-top:10px;
+            background-color:#333;
+        }
+
+        #main {
+            width: 1000px;
+            background-color: #FFF;
+            margin: auto;
+            margin-top:10px;
+            margin-bottom:10px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-family:Verdana, sans-serif;
+        }
+
+        .hint {
+            position: relative;
+        }
+
+        .hint .hintt {
+            position: absolute;
+            visibility: hidden;
+            background-color: #ccf;
+            width:300px;
+            color: black;
+            border-radius: 6px;
+            border: 2px solid black;
+            padding: 5px 10px;
+            z-index: 5;
+            font-weight: normal;
+            text-align: justify;
+            margin-top: 30px;
+        }
+
+        .hint .lower {
+            margin-top: 45px;
+        }
+
+        .hint .lowerr {
+            margin-top: 65px;
+        }
+
+        .hint:hover .hintt {
+            visibility: visible;
+        }
+
+        .hint:hover .hintstay:hover {
+            visibility: visible;
+        }
+
+        .tip::after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 10%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+        .flip {
+            left:-240px;
+        }
+
+        .flip::after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 90%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+        th, td {
+            padding: 10px;
+            width: 7em;
+        }
+
+        th {
+            background-color: white;
+        }
+
+        th:first-child, td:first-child {
+            font-weight: bold;
+            text-align: left;
+            width: 3em;
+            background-color: white;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #eFe;
+        }
+
+        tr:nth-child(even) {
+            background-color: #cDc;
+        }
+
+        tr:first-child {
+
+        }
+
+        td {
+            text-align: center;
+        }
+
+        table {
+            border-spacing: 1px;
+        }
+
+        a, a:visited {
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="main">
+    <h1>Data Structures and Basic Operations</h1>
+    <p>We assume that we are interested in storing some subset of a large universe of possible values (say a subset of the integers between 1 and U) in the data structure, and we want to change or access this subset quickly. The table describes several possible operations on the data structure and the associated worst-case running times. We assume that when the operation starts, the data structure stores n values/integers.</p>
+    <p>Tap or hover the mouse pointer over any entry, operation, or data structure in the table for a brief explanation. <strong>But think about it first!</strong></p>
+    <table>
+        <tr>
+            <th></th>
+            <th class="hint"><span class="hintt tip">A sequence of elements, where each element consists of a value and a pointer to the next element in the sequence.</span>Linked List</th>
+            <th class="hint"><span class="hintt tip lower">A sequence of elements, where each element consists of a value and a pointer to both the previous and the next element in the sequence.</span>Doubly-linked List</th>
+            <th class="hint"><span class="hintt tip">A sequence of elements. There are no empty spaces between the elements.</span>Array</th>
+            <th class="hint"><span class="hintt tip">A sequence of sorted elements. There are no empty spaces between the elements.</span>Sorted Array</th>
+            <th class="hint"><span class="hintt tip">An array that contains a bit for each possible value to indicate whether it is present (1) or not (0).</span>Map</th>
+            <th class="hint"><span class="hintt flip lower hintstay">A rooted binary tree of which each node stores a value and has 0, 1, or 2 children. If a node has children, each child is labeled either as the left or the right child. A node with 2 children has both a left and a right child.<br /><span style="font-weight:bold">Crucial:</span> For each node N, the values stored in the nodes in the subtree rooted at the left child of N are less than the value stored in N; the values stored in the nodes in the subtree rooted at the right child of N are all bigger than the value stored in N.<br />Based on the idea of the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.</span> Binary Search Tree</th>
+            <th class="hint"><span class="hintt flip lowerr hintstay">A rooted binary tree of which each node stores a value and has 0, 1, or 2 children. If a node has children, each child is labeled either as the left or the right child. A node with 2 children has both a left and a right child.<br /><span style="font-weight:bold">Crucial:</span> For each node N, the values stored in the nodes in the subtree rooted at the left child of N are less than the value stored in N; the values stored in the nodes in the subtree rooted at the right child of N are all bigger than the value stored in N.<br />Based on the idea of the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.<br /><span style="font-weight:bold">Invariant:</span> The depth of any two leaves differs by at most 1 (as in a complete binary tree). The crucial trick is to maintain this invariant during insertion or deletion operations. For example: <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black trees</a>.</span>Balanced Binary Search Tree</th>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Initialize the data structure.</span>Init</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td class="hint"><span class="hintt tip">The data structure is represented by an array D of size U, of which each element needs to be set to zero.</span>O(U)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Decide whether a given value V is stored in the data structure.</span>Find</td>
+            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
+            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
+            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
+            <td class="hint"><span class="hintt tip hintstay">Use <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a>.</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">Inspect the array at the corresponding index.</span>O(1)</td>
+            <td class="hint"><span class="hintt flip">Recall that the ordering on the children of the tree helps guide our search. If V is less than the value stored in the current node N of the tree, then move to the left child of N (if it exists). If V is less than the value stored in the current node N of the tree, then move to the right child of N (if it exists). If V is equal to the value stored in N, then answer Yes. Otherwise (particularly if N is a leaf), answer No.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach a leaf and find V (or not).</span>O(n)</td>
+            <td class="hint"><span class="hintt flip">Recall that the ordering on the children of the tree helps guide our search. If V is less than the value stored in the current node N of the tree, then move to the left child of N (if it exists). If V is less than the value stored in the current node N of the tree, then move to the right child of N (if it exists). If V is equal to the value stored in N, then answer Yes. Otherwise (particularly if N is a leaf), answer No.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find V (or not).</span>O(log n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Insert a new value in the data structure. We do not check for duplicates (this requires an additional find operation).</span>Insert</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td class="hint"><span class="hintt tip">Normally, we spend O(1) time to append the new value at the end of the array. We only spend O(n) time if we need to reallocate the array to insert the new value; then we need to copy the entire array into the new space.</span>O(1) / O(n)</td>
+            <td class="hint"><span class="hintt tip">To insert the value at the right position, we need to move all larger values one position to the right in the array. We also might need to spend O(n) time if we need to reallocate the array to insert the new value; then we need to copy the entire array into the new space.</span>O(n)</td>
+            <td>O(1)</td>
+            <td class="hint"><span class="hintt flip">We need to search the tree to find the appropriate place where to insert the value. Similar to the find operation, the ordering on the children of the tree helps guide our search. However, as with a normal find, this might take O(n) time. If, however, we happen to already know the correct place in the tree structure where to insert the value, then we only require O(1) time.</span>O(n) / O(1)</td>
+            <td class="hint"><span class="hintt flip hintstay">We need to search the tree to find the appropriate place where to insert the value. Similar to the find operation, the ordering on the children of the tree helps guide our search. As with a normal find, this takes O(log n) time. If, however, we happen to already know the correct node in the tree structure under which to insert the value, then we only require O(1) time.<br /><span style="font-weight:bold">Crucial:</span> After insertion, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Insertion">red-black trees</a> at work.</span>O(log n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Remove a value in the data structure. We assume that the value is stored in the data structure (verifying this requires an additional find operation).</span>Delete</td>
+            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor (which we found during the find operation) in the list. If we already know where the predecessor is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor in the list. If we already know where the value is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the array. After that, or if we already know where the value is stored in the array, then we spend only O(1) time to remove it and move the last element of the array to the element we just removed (to ensure no empty spaces remain).</span>O(n) / O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the array. If we already know where the value is stored in the array, this takes O(1) time. After that, however, we spend O(n) time to move all larger values one element to the left (to ensure no empty spaces remain).</span>O(n)</td>
+            <td>O(1)</td>
+            <td class="hint"><span class="hintt flip">We need to spend O(n) time to find the value in the tree. After that, or if we already know in which node of the tree the value is stored and its parent node, then we spend only O(1) time to remove it.</span>O(n) / O(1)</td>
+            <td class="hint"><span class="hintt flip hintstay">We need to spend O(n) time to find the value in the tree. After that, or if we already know in which node of the tree the value is stored and its parent node, then we spend only O(1) time to remove it.<br /><span style="font-weight:bold">Crucial:</span> After removal, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Removal">red-black trees</a> at work.</span>O(log n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Find some value that is stored in the data structure (if any).</span>Some</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to look in the array from the start.</span>O(U-n)</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure. This takes &#937;(n) time.</span>Enum</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td>O(U)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure in order. This takes &#937;(n) time.</span>Order</td>
+            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
+            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
+            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
+            <td>O(n)</td>
+            <td>O(U)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Given a value V, find the smallest value in the data structure that is larger than V.</span>Succ</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">If we already know where the current value V is stored in the array, then this needs O(1) time. Otherwise, we first need to execture a find in O(log n) time. If V is not stored in the array, a minor modification of the find operation suffices.</span>O(log n) / O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to look through the entire array after V.</span>O(U)</td>
+            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no right child, then we look for the lowest ancestor A of N that has two children and the path used the left child. Otherwise, A is defined to be N. Then return the value stored in the leftmost leaf in the subtree rooted at the left child of A.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach the sought leaf.</span>O(n)</td>
+            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no right child, then we look for the lowest ancestor A of N that has two children and the path used the left child. Otherwise, A is defined to be N. Then return the value stored in the leftmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">Given a value V, find the largest value in the data structure that is smaller than V.</span>Pred</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">If we already know where the current value V is stored in the array, then this needs O(1) time. Otherwise, we first need to execture a find in O(log n) time. If V is not stored in the array, a minor modification of the find operation suffices.</span>O(log n) / O(1)</td>
+            <td class="hint"><span class="hintt tip">We need to look through the entire array before V.</span>O(U)</td>
+            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no left child, then we look for the lowest ancestor A of N that has two children and the path used the right child. Otherwise, A is defined to be N. Then return the value stored in the rightmost leaf in the subtree rooted at the left child of A.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach the sought leaf.</span>O(n)</td>
+            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no left child, then we look for the lowest ancestor A of N that has two children and the path used the right child. Otherwise, A is defined to be N. Then return the value stored in the rightmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
+        </tr>
+        <tr>
+            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>Space</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
+            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
+            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
+            <td>O(n)</td>
+            <td>O(n)</td>
+        </tr>
+    </table>
+
+    <p style="margin-top:50px">Created by <a href="http://www.erikjanvl.nl">Erik Jan van Leeuwen</a>. It adds interactivity and explanations to a version of this table used by <a href="http://www-tcs.cs.uni-sb.de/">Raimund Seidel</a> in his lectures.</p>
+
+    <div style="height:500px;">&nbsp;</div>
+
+</div>
+</body>
+</html>
