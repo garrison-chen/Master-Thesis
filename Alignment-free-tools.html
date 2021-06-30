@@ -184,6 +184,7 @@
     <h1>Main Alignment-free Tools Comparisons</h1>
     <p>This table gives a summary of the main Alignment-free tools and their comparisons to each other.</p>
     <p>Tap or hover the mouse pointer over any entry, operation, or data structure in the table for a brief explanation. <strong>But think about it first!</strong></p>
+
     <table>
         <tr>
             <th></th>
@@ -196,7 +197,7 @@
             <th class="hint"><span class="hintt flip lowerr hintstay">A rooted binary tree of which each node stores a value and has 0, 1, or 2 children. If a node has children, each child is labeled either as the left or the right child. A node with 2 children has both a left and a right child.<br /><span style="font-weight:bold">Crucial:</span> For each node N, the values stored in the nodes in the subtree rooted at the left child of N are less than the value stored in N; the values stored in the nodes in the subtree rooted at the right child of N are all bigger than the value stored in N.<br />Based on the idea of the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.<br /><span style="font-weight:bold">Invariant:</span> The depth of any two leaves differs by at most 1 (as in a complete binary tree). The crucial trick is to maintain this invariant during insertion or deletion operations. For example: <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">red-black trees</a>.</span>Balanced Binary Search Tree</th>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Initialize the data structure.</span>Init</td>
+            <td class="hint"><span class="hintt tip">Initialize the data structure.</span>Multi-SpaM</td>
             <td>O(1)</td>
             <td>O(1)</td>
             <td>O(1)</td>
@@ -206,7 +207,7 @@
             <td>O(1)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Decide whether a given value V is stored in the data structure.</span>Find</td>
+            <td class="hint"><span class="hintt tip">Decide whether a given value V is stored in the data structure.</span>Prot-SpaM</td>
             <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
             <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
             <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
@@ -216,7 +217,7 @@
             <td class="hint"><span class="hintt flip">Recall that the ordering on the children of the tree helps guide our search. If V is less than the value stored in the current node N of the tree, then move to the left child of N (if it exists). If V is less than the value stored in the current node N of the tree, then move to the right child of N (if it exists). If V is equal to the value stored in N, then answer Yes. Otherwise (particularly if N is a leaf), answer No.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find V (or not).</span>O(log n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Insert a new value in the data structure. We do not check for duplicates (this requires an additional find operation).</span>Insert</td>
+            <td class="hint"><span class="hintt tip">Insert a new value in the data structure. We do not check for duplicates (this requires an additional find operation).</span>Read-SpaM</td>
             <td>O(1)</td>
             <td>O(1)</td>
             <td class="hint"><span class="hintt tip">Normally, we spend O(1) time to append the new value at the end of the array. We only spend O(n) time if we need to reallocate the array to insert the new value; then we need to copy the entire array into the new space.</span>O(1) / O(n)</td>
@@ -226,7 +227,7 @@
             <td class="hint"><span class="hintt flip hintstay">We need to search the tree to find the appropriate place where to insert the value. Similar to the find operation, the ordering on the children of the tree helps guide our search. As with a normal find, this takes O(log n) time. If, however, we happen to already know the correct node in the tree structure under which to insert the value, then we only require O(1) time.<br /><span style="font-weight:bold">Crucial:</span> After insertion, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Insertion">red-black trees</a> at work.</span>O(log n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Remove a value in the data structure. We assume that the value is stored in the data structure (verifying this requires an additional find operation).</span>Delete</td>
+            <td class="hint"><span class="hintt tip">Remove a value in the data structure. We assume that the value is stored in the data structure (verifying this requires an additional find operation).</span>andi</td>
             <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor (which we found during the find operation) in the list. If we already know where the predecessor is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
             <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor in the list. If we already know where the value is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
             <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the array. After that, or if we already know where the value is stored in the array, then we spend only O(1) time to remove it and move the last element of the array to the element we just removed (to ensure no empty spaces remain).</span>O(n) / O(1)</td>
@@ -236,7 +237,7 @@
             <td class="hint"><span class="hintt flip hintstay">We need to spend O(n) time to find the value in the tree. After that, or if we already know in which node of the tree the value is stored and its parent node, then we spend only O(1) time to remove it.<br /><span style="font-weight:bold">Crucial:</span> After removal, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Removal">red-black trees</a> at work.</span>O(log n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Find some value that is stored in the data structure (if any).</span>Some</td>
+            <td class="hint"><span class="hintt tip">Find some value that is stored in the data structure (if any).</span>Co-phylog</td>
             <td>O(1)</td>
             <td>O(1)</td>
             <td>O(1)</td>
@@ -246,7 +247,7 @@
             <td>O(1)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure. This takes &#937;(n) time.</span>Enum</td>
+            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure. This takes &#937;(n) time.</span>Skope-SpaM</td>
             <td>O(n)</td>
             <td>O(n)</td>
             <td>O(n)</td>
@@ -256,7 +257,7 @@
             <td>O(n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure in order. This takes &#937;(n) time.</span>Order</td>
+            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure in order. This takes &#937;(n) time.</span>SANS</td>
             <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
             <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
             <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
@@ -266,7 +267,7 @@
             <td>O(n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Given a value V, find the smallest value in the data structure that is larger than V.</span>Succ</td>
+            <td class="hint"><span class="hintt tip">Given a value V, find the smallest value in the data structure that is larger than V.</span>D_{2}^*, D_{2}^S</td>
             <td>O(n)</td>
             <td>O(n)</td>
             <td>O(n)</td>
@@ -276,7 +277,7 @@
             <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no right child, then we look for the lowest ancestor A of N that has two children and the path used the left child. Otherwise, A is defined to be N. Then return the value stored in the leftmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">Given a value V, find the largest value in the data structure that is smaller than V.</span>Pred</td>
+            <td class="hint"><span class="hintt tip">Given a value V, find the largest value in the data structure that is smaller than V.</span>Mash</td>
             <td>O(n)</td>
             <td>O(n)</td>
             <td>O(n)</td>
@@ -286,7 +287,7 @@
             <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no left child, then we look for the lowest ancestor A of N that has two children and the path used the right child. Otherwise, A is defined to be N. Then return the value stored in the rightmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
         </tr>
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>Space</td>
+            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>Skmer</td>
             <td>O(n)</td>
             <td>O(n)</td>
             <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
