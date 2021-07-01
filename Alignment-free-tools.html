@@ -183,9 +183,9 @@
 <div id="main">
     <h1>Main Alignment-free Tools Comparisons</h1>
     <p>This table gives a summary of the main Alignment-free tools and their comparisons to each other.</p>
-    <p>Tap or hover the mouse pointer over any entry, operation, or data structure in the table for a brief explanation. <strong>But think about it first!</strong></p>
 
     <table>
+        <! -- first row -->
         <tr>
             <th></th>
             <th class="hint"><span class="hintt tip">A sequence of elements, where each element consists of a value and a pointer to the next element in the sequence.</span>Category</th>
@@ -197,8 +197,8 @@
             <th class="hint"><span class="hintt tip">A sequence of elements. There are no empty spaces between the elements.</span>Input</th>
             <th class="hint"><span class="hintt tip">A sequence of elements. There are no empty spaces between the elements.</span>Output</th>
             <th class="hint"><span class="hintt tip">A sequence of elements. There are no empty spaces between the elements.</span>Notes</th>
-
         </tr>
+        <! -- Multi-SpaM -->
         <tr>
             <td class="hint"><span class="hintt tip">calculate P-blocks -> construct the quartet topology for each of the P-blocks -> amalgamate into a single tree spanning the entire taxa (Heuristic)</span>Multi-SpaM</td>
             <td>micros alignments (FSWM-based)</td>
@@ -212,140 +212,179 @@
             <td>multiple sequence comparison</td>
 
         </tr>
+        <! -- Prot-SpaM -->
         <tr>
-            <td class="hint"><span class="hintt tip">Decide whether a given value V is stored in the data structure.</span>Prot-SpaM</td>
-            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
-            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
-            <td class="hint"><span class="hintt tip">We need to inspect every element in the sequence.</span>O(n)</td>
-            <td class="hint"><span class="hintt tip hintstay">Use <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a>.</span>O(log n)</td>
-            <td class="hint"><span class="hintt tip">Inspect the array at the corresponding index.</span>O(1)</td>
-            <td class="hint"><span class="hintt flip">Recall that the ordering on the children of the tree helps guide our search. If V is less than the value stored in the current node N of the tree, then move to the left child of N (if it exists). If V is less than the value stored in the current node N of the tree, then move to the right child of N (if it exists). If V is equal to the value stored in N, then answer Yes. Otherwise (particularly if N is a leaf), answer No.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach a leaf and find V (or not).</span>O(n)</td>
-            <td class="hint"><span class="hintt flip">Recall that the ordering on the children of the tree helps guide our search. If V is less than the value stored in the current node N of the tree, then move to the left child of N (if it exists). If V is less than the value stored in the current node N of the tree, then move to the right child of N (if it exists). If V is equal to the value stored in N, then answer Yes. Otherwise (particularly if N is a leaf), answer No.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find V (or not).</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">calculate SWM -> filter SWM -> estimate distance</span>Prot-SpaM</td>
+            <td>micros alignments (FSWM-based)</td>
+            <td>2019</td>
+            <td>/</td>
+            <td>/</td>
+            <td class="hint"><span class="hintt tip">The data structure is represented by an array D of size U, of which each element needs to be set to zero.</span>/</td>
+            <td>n.a.</td>
+            <td>whole proteome (FASTA)</td>
+            <td>phylogeny tree</td>
+            <td>protein sequence</td>
         </tr>
+        <! -- Read-SpaM -->
         <tr>
-            <td class="hint"><span class="hintt tip">Insert a new value in the data structure. We do not check for duplicates (this requires an additional find operation).</span>Read-SpaM</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-            <td class="hint"><span class="hintt tip">Normally, we spend O(1) time to append the new value at the end of the array. We only spend O(n) time if we need to reallocate the array to insert the new value; then we need to copy the entire array into the new space.</span>O(1) / O(n)</td>
-            <td class="hint"><span class="hintt tip">To insert the value at the right position, we need to move all larger values one position to the right in the array. We also might need to spend O(n) time if we need to reallocate the array to insert the new value; then we need to copy the entire array into the new space.</span>O(n)</td>
-            <td>O(1)</td>
-            <td class="hint"><span class="hintt flip">We need to search the tree to find the appropriate place where to insert the value. Similar to the find operation, the ordering on the children of the tree helps guide our search. However, as with a normal find, this might take O(n) time. If, however, we happen to already know the correct place in the tree structure where to insert the value, then we only require O(1) time.</span>O(n) / O(1)</td>
-            <td class="hint"><span class="hintt flip hintstay">We need to search the tree to find the appropriate place where to insert the value. Similar to the find operation, the ordering on the children of the tree helps guide our search. As with a normal find, this takes O(log n) time. If, however, we happen to already know the correct node in the tree structure under which to insert the value, then we only require O(1) time.<br /><span style="font-weight:bold">Crucial:</span> After insertion, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Insertion">red-black trees</a> at work.</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">calculate SWM -> filter SWM -> estimate distance (Jukes-cantor)</span>Prot-SpaM</td>
+            <td>micros alignments (FSWM-based)</td>
+            <td>2019</td>
+            <td>Y</td>
+            <td>Y</td>
+            <td>Short</td>
+            <td>n.a.</td>
+            <td>unassembled reads (FASTA)</td>
+            <td>phylogeny tree</td>
+            <td>only on Linux</td>
         </tr>
+        <! -- andi -->
         <tr>
-            <td class="hint"><span class="hintt tip">Remove a value in the data structure. We assume that the value is stored in the data structure (verifying this requires an additional find operation).</span>andi</td>
-            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor (which we found during the find operation) in the list. If we already know where the predecessor is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the list, remove it, and change the pointer of its predecessor in the list. If we already know where the value is stored in the list, then only O(1) time is required.</span>O(n) / O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the array. After that, or if we already know where the value is stored in the array, then we spend only O(1) time to remove it and move the last element of the array to the element we just removed (to ensure no empty spaces remain).</span>O(n) / O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to spend O(n) time to locate the value in the array. If we already know where the value is stored in the array, this takes O(1) time. After that, however, we spend O(n) time to move all larger values one element to the left (to ensure no empty spaces remain).</span>O(n)</td>
-            <td>O(1)</td>
-            <td class="hint"><span class="hintt flip">We need to spend O(n) time to find the value in the tree. After that, or if we already know in which node of the tree the value is stored and its parent node, then we spend only O(1) time to remove it.</span>O(n) / O(1)</td>
-            <td class="hint"><span class="hintt flip hintstay">We need to spend O(n) time to find the value in the tree. After that, or if we already know in which node of the tree the value is stored and its parent node, then we spend only O(1) time to remove it.<br /><span style="font-weight:bold">Crucial:</span> After removal, we need to re-balance the tree in O(log n) time: this is the beauty of <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL trees</a> or <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Removal">red-black trees</a> at work.</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">andi estimates phylogenetic distances between genomic sequences based on ungapped local alignments that are flanked by maximal exact word matches. Such word matches can be efficiently found using suffix arrays.</span>andi</td>
+            <td>micros alignments</td>
+            <td>2015</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>O(length^1.05)</td>
+            <td>genomic sequence</td>
+            <td>pairwise distances</td>
+            <td>/</td>
         </tr>
+        <! -- Co-phylog -->
         <tr>
-            <td class="hint"><span class="hintt tip">Find some value that is stored in the data structure (if any).</span>Co-phylog</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to look in the array from the start.</span>O(U-n)</td>
-            <td>O(1)</td>
-            <td>O(1)</td>
+            <td class="hint"><span class="hintt tip">This method searches for so-called structures that are defined as pairs of k-mer matches between two DNA sequences that are one position apart in both sequences. The two k-mer matches are called the context, the position between them is called the object. Co-phylog then defines the distance between two sequences the fraction of such structures for which the two nucleotides in the object are different. The approach can be applied to unassembled sequencing reads.</span> Co-phylog</td>
+            <td>micros alignments</td>
+            <td>2010</td>
+            <td>/</td>
+            <td>Y</td>
+            <td>/</td>
+            <td>n.a.</td>
+            <td>genomic sequence</td>
+            <td>pairwise distances</td>
+            <td>/</td>
         </tr>
+        <! -- Slope-SpaM -->
         <tr>
-            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure. This takes &#937;(n) time.</span>Skope-SpaM</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">This method calculates the number of k-mer or spaced-word matches (SpaM) for different values for the word length or number of match positions in the underlying pattern, respectively. The slope of an affine-linear function that depends on is calculated to estimate the Jukes-Cantor distance between the input sequences.</span>Slope-SpaM</td>
+            <td>micros alignments (Number of Spaced-word matches)</td>
+            <td>2020</td>
+            <td>/</td>
+            <td>Y</td>
+            <td>/</td>
+            <td>n.a.</td>
+            <td>genomes (FASTA)</td>
+            <td>pairwise Jukes-Cantor distances</td>
+            <td>/</td>
         </tr>
+        <! -- SANS -->
         <tr>
-            <td class="hint"><span class="hintt tip">Enumerate all values that are stored in the data structure in order. This takes &#937;(n) time.</span>SANS</td>
-            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
-            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
-            <td class="hint"><span class="hintt tip">This data structure is not ordered by default. Hence, we would need to sort the data structure first.</span>O(n log n)</td>
-            <td>O(n)</td>
-            <td>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">construct coloured de Bruijn graph for each genome -> accumulate split weights using trie data structures -> combine splits</span>SANS</td>
+            <td>graphical representation</td>
+            <td>2019</td>
+            <td>Y</td>
+            <td>/</td>
+            <td>/</td>
+            <td>O(mnlog(n))</td>
+            <td>assembled genomes / reads</td>
+            <td>weighted splits</td>
+            <td>new version available (SANS serif: supports MACOS, WINDOWS)</td>
         </tr>
+        <! -- D_{2}^*, D_{2}^S -->
         <tr>
-            <td class="hint"><span class="hintt tip">Given a value V, find the smallest value in the data structure that is larger than V.</span>D_{2}^*, D_{2}^S</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">If we already know where the current value V is stored in the array, then this needs O(1) time. Otherwise, we first need to execture a find in O(log n) time. If V is not stored in the array, a minor modification of the find operation suffices.</span>O(log n) / O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to look through the entire array after V.</span>O(U)</td>
-            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no right child, then we look for the lowest ancestor A of N that has two children and the path used the left child. Otherwise, A is defined to be N. Then return the value stored in the leftmost leaf in the subtree rooted at the left child of A.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach the sought leaf.</span>O(n)</td>
-            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no right child, then we look for the lowest ancestor A of N that has two children and the path used the left child. Otherwise, A is defined to be N. Then return the value stored in the leftmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">construct coloured de Bruijn graph for each genome -> accumulate split weights using trie data structures -> combine splits</span>D_{2}^*, D_{2}^S</td>
+            <td>Number of word matches</td>
+            <td>2009</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>by Michael S. Waterman</td>
         </tr>
+        <! -- MASH -->
         <tr>
-            <td class="hint"><span class="hintt tip">Given a value V, find the largest value in the data structure that is smaller than V.</span>Mash</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">If we already know where the current value V is stored in the array, then this needs O(1) time. Otherwise, we first need to execture a find in O(log n) time. If V is not stored in the array, a minor modification of the find operation suffices.</span>O(log n) / O(1)</td>
-            <td class="hint"><span class="hintt tip">We need to look through the entire array before V.</span>O(U)</td>
-            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no left child, then we look for the lowest ancestor A of N that has two children and the path used the right child. Otherwise, A is defined to be N. Then return the value stored in the rightmost leaf in the subtree rooted at the left child of A.<br />Note that leaves in a binary search tree might have depth O(n). Hence, we might spend O(n) time to reach the sought leaf.</span>O(n)</td>
-            <td class="hint"><span class="hintt flip">A minor modification of the find operation suffices. We execute a find operation and consider the path from the root to the node N where the find operation stops. If N has no left child, then we look for the lowest ancestor A of N that has two children and the path used the right child. Otherwise, A is defined to be N. Then return the value stored in the rightmost leaf in the subtree rooted at the left child of A.<br />Note that all leaves in a balanced binary search tree have depth O(log n). Hence, we spend O(log n) time to find the sought leaf.</span>O(log n)</td>
+            <td class="hint"><span class="hintt tip">This is an extremely fast method that uses the MinHash bottom sketch strategy for estimating the Jaccard index of the multi-sets of k-mers of two input sequences.</span>MASH</td>
+            <td>Number of word matches</td>
+            <td>2016</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>O(n + s log s log n) </td>
+            <td>genomes</td>
+            <td>pairwise distances</td>
+            <td>very Fast</td>
         </tr>
+        <! -- Skmer -->
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>Skmer</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">Skmer calculates distances between species from unassembled sequencing reads. Similar to MASH, it uses the Jaccard index on the sets of k-mers from the input sequences. In contrast to MASH, the program is still accurate for low sequencing coverage.</span>SANS</td>
+            <td>Number of word matches</td>
+            <td>2019</td>
+            <td>/</td>
+            <td>Y</td>
+            <td>/</td>
+            <td>n.a.</td>
+            <td>genomes</td>
+            <td>pairwise distances</td>
+            <td>similar to MASH</td>
         </tr>
+        <! -- ACS -->
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>ACS</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">calculate averaged longest exact matches between two strings.</span>ACS</td>
+            <td>Length of common substrings</td>
+            <td>2005</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>O(m2 · l · log(l))</td>
+            <td>genome / proteome</td>
+            <td>pairwise distances</td>
+            <td>Exact matching</td>
         </tr>
+        <! -- kmacs -->
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>kmacs</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">calculate averaged longest (k-mismatch tolerated) matches between two strings.</span>kmacs</td>
+            <td>Length of common substrings</td>
+            <td>2015</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>O(k*n*z) + O(|S1|+|S2|)</td>
+            <td>genome / proteome (FASTA) max 10mb, 500 sequences</td>
+            <td>pairwise distances</td>
+            <td>Heuristic, based on ACS. Web interface available</td>
         </tr>
+        <! -- FFPs -->
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>FFPs</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">count each possible k-mer -> normalise -> generate FFP -> calculate Jensen-Shannon divergence.</span>FFPs</td>
+            <td>Kmer frequency</td>
+            <td>2011</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>n.a.</td>
+            <td>genomes</td>
+            <td>pairwise distances</td>
+            <td>/</td>
         </tr>
+        <! -- AAF -->
         <tr>
-            <td class="hint"><span class="hintt tip">The amount of space that it takes to store the data structure.</span>AAF</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array might be made to occupy the first n entries of a much larger memory space of size N to avoid reallocations when inserting values, or to account for the space left over by removed values.</span>N / O(n)</td>
-            <td class="hint"><span class="hintt tip">The array contains a bit for each of the U possible values to indicate whether it is present or not.</span>O(U)</td>
-            <td>O(n)</td>
-            <td>O(n)</td>
+            <td class="hint"><span class="hintt tip">generate k-mer table -> estimate d -> tree estimation</span>AAF</td>
+            <td>Kmer frequency</td>
+            <td>2015</td>
+            <td>/</td>
+            <td>/</td>
+            <td>/</td>
+            <td>n.a.</td>
+            <td>genomes</td>
+            <td>pairwise distances</td>
+            <td>/</td>
         </tr>
 
     </table>
 
-    <p style="margin-top:50px">Created by <a href="http://www.erikjanvl.nl">Erik Jan van Leeuwen</a>. It adds interactivity and explanations to a version of this table used by <a href="http://www-tcs.cs.uni-sb.de/">Raimund Seidel</a> in his lectures.</p>
+    <p style="margin-top:50px">Adapted from 'Data Structures and Basic Operations' by <a href="http://www.erikjanvl.nl">Erik Jan van Leeuwen</a> and <a href="http://www-tcs.cs.uni-sb.de/">Raimund Seidel</a> in the lecture 'Algorithms and Data Structures' in Saarland University WS20.</p>
 
     <div style="height:500px;">&nbsp;</div>
 
