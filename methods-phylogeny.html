@@ -9,16 +9,45 @@
 </head>
 <body>
 
-<p>Here is the background information of my thesis</p>
-
+<h1>Methods for Phylogeny Reconstruction</h1>
 <p>
-    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+    Here is the main methods for constructing the Phylogeny Tree, suppose we have
+    the pairwise distances as input from the Alignment-free algorithms.
 </p>
 
-<p>
-    \[ x^n + y^n = z^n \]
 
+
+
+<h2>Distance-matrix methods</h2>
+<h3>UPGMA: Unweighted Pair Group Method with Arithmetic mean</h3>
+<p>
+    \[ \frac{1}{|A|*|B|}\sum_{x \in A}\sum_{y \in B}d(x,y) \]
+    \[ d(A \cup B),X = \frac{|A|*d_{A,X} + |B|*d_{B,X}}{|A| + |B|} \]
+</p>
+
+<h3>WPGMA: Weighted Pair Group Method with Arithmetic mean</h3>
+<p>
+    \[ d_{(i \in j),k} = \frac{d_{i,k} + d_{j,k}}{2} \]
+</p>
+
+<h3>Neighbor-joining</h3>
+
+
+<h3>Fitch-Margoliash method</h3>
+
+
+
+
+<h2>Maximum parsimony</h2>
+
+
+
+
+<h2>Maximum likelihood</h2>
+
+
+
+<h2>Bayesian inference</h2>
 
 </body>
 </html>
