@@ -207,7 +207,7 @@
             <td class="hint"><span class="hintt tip">calculate P-blocks -> construct the quartet topology for each of the P-blocks -> amalgamate into a single tree spanning the entire taxa (Heuristic)</span>Multi-SpaM</td>
             <td>micros alignments (FSWM-based)</td>
             <td>2019</td>
-            <td>/</td>
+            <td>N</td>
             <td>/</td>
             <td class="hint"><span class="hintt tip">The data structure is represented by an array D of size U, of which each element needs to be set to zero.</span>/</td>
             <td>n.a.</td>
@@ -222,7 +222,7 @@
             <td>micros alignments (FSWM-based)</td>
             <td>2019</td>
             <td>/</td>
-            <td>/</td>
+            <td>N</td>
             <td class="hint"><span class="hintt tip">The data structure is represented by an array D of size U, of which each element needs to be set to zero.</span>/</td>
             <td>n.a.</td>
             <td>whole proteome (FASTA)</td>
@@ -235,7 +235,7 @@
             <td>micros alignments (FSWM-based)</td>
             <td>2019</td>
             <td>Y</td>
-            <td>Y</td>
+            <td>N</td>
             <td>Short</td>
             <td>n.a.</td>
             <td>unassembled reads (FASTA)</td>
@@ -250,7 +250,7 @@
             <td>/</td>
             <td>/</td>
             <td>/</td>
-            <td>O(length^1.05)</td>
+            <td>\[O(length^{1.05})\]</td>
             <td>genomic sequence</td>
             <td>pairwise distances</td>
             <td>/</td>
@@ -289,7 +289,7 @@
             <td>Y</td>
             <td>/</td>
             <td>/</td>
-            <td>O(mnlog(n))</td>
+            <td>\[O(mnlog(n))\]</td>
             <td>assembled genomes / reads</td>
             <td>weighted splits</td>
             <td>new version available (SANS serif: supports MACOS, WINDOWS)</td>
@@ -302,7 +302,7 @@
             <td>/</td>
             <td>/</td>
             <td>/</td>
-            <td>/</td>
+            <td>n.a.</td>
             <td>/</td>
             <td>/</td>
             <td>by Michael S. Waterman</td>
@@ -315,7 +315,7 @@
             <td>/</td>
             <td>/</td>
             <td>/</td>
-            <td>O(n + s log s log n) </td>
+            <td>\[O(n + s*log(s)*log(n))\]</td>
             <td>genomes</td>
             <td>pairwise distances</td>
             <td>very Fast</td>
@@ -341,7 +341,7 @@
             <td>/</td>
             <td>/</td>
             <td>/</td>
-            <td>O(m2 · l · log(l))</td>
+            <td>\[O(m^{2}*l*log(l))\]</td>
             <td>genome / proteome</td>
             <td>pairwise distances</td>
             <td>Exact matching</td>
@@ -354,7 +354,7 @@
             <td>/</td>
             <td>/</td>
             <td>/</td>
-            <td>O(k*n*z) + O(|S1|+|S2|)</td>
+            <td>\[O(k*n*z) + O(|S1|+|S2|)\]</td>
             <td>genome / proteome (FASTA) max 10mb, 500 sequences</td>
             <td>pairwise distances</td>
             <td>Heuristic, based on ACS. Web interface available</td>
@@ -387,10 +387,6 @@
         </tr>
 
     </table>
-
-
-
-
 
     <P style="page-break-before: always">
     <h3>Classification of main Alignment-free tools:</h3>
