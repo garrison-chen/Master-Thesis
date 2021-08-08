@@ -9,9 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/wrokflow.html" beforeDir="false" afterPath="$PROJECT_DIR$/workflow.html" afterDir="false" />
-    </list>
+    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +79,7 @@
       <workItem from="1627376998993" duration="748000" />
       <workItem from="1627459245956" duration="202000" />
       <workItem from="1628163505324" duration="140000" />
-      <workItem from="1628343476967" duration="177000" />
+      <workItem from="1628343476967" duration="240000" />
     </task>
     <servers />
   </component>
