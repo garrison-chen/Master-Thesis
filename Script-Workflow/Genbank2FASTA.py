@@ -14,10 +14,10 @@ protein_seq = ""
 for seq_record in SeqIO.parse(input_handle, "genbank"):
     for feature in seq_record.features:
         if feature.type == "CDS" and str(feature.qualifiers.get('translation')) != "None":
-		    if str(feature.qualifiers.get('protein_id')) != "None":
-		        protein_seq += ">" + str(feature.qualifiers.get('protein_id')) + "\n" + str(feature.qualifiers.get('translation')) + "\n"
-		    else
-		        protein_seq += ">" + str(feature.qualifiers.get('locus_tag')) + "\n" + str(feature.qualifiers.get('translation')) + "\n"
+            if str(feature.qualifiers.get('protein_id')) != "None":
+                protein_seq += ">" + str(feature.qualifiers.get('protein_id')) + "\n" + str(feature.qualifiers.get('translation')) + "\n"
+            else:
+                protein_seq += ">" + str(feature.qualifiers.get('locus_tag')) + "\n" + str(feature.qualifiers.get('translation')) + "\n"
     break
 
 protein_seq = protein_seq.replace("['","").replace("']","")

@@ -9,7 +9,26 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="" />
+    <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000012685.1_ASM1268v1_genomic.gbff.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000012685.1_ASM1268v1_genomic_converted.fasta.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000331735.1_ASM33173v1_genomic.gbff.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000331735.1_ASM33173v1_genomic_converted.fasta.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_017301635.1_ASM1730163v1_genomic.gbff.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_017301635.1_ASM1730163v1_genomic_converted.fasta.icloud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/.ipynb_checkpoints/Genbank Parser-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/.ipynb_checkpoints/Genbank Parser-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/GCF_012933655.1_ASM1293365v1_genomic.gbff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/GCF_012933655.1_ASM1293365v1_genomic_converted.fasta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank Parser.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/Genbank Parser.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank2FAA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank2FASTA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/Genbank2FASTA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/SequenceMultiple.gb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/SequenceMultiple_converted.fasta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/sequence.gb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script-Workflow/sequence_converted.fasta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +98,7 @@
       <workItem from="1627376998993" duration="748000" />
       <workItem from="1627459245956" duration="202000" />
       <workItem from="1628163505324" duration="140000" />
-      <workItem from="1628343476967" duration="240000" />
+      <workItem from="1628343476967" duration="635000" />
     </task>
     <servers />
   </component>
