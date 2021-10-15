@@ -5,28 +5,12 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000012685.1_ASM1268v1_genomic.gbff.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000012685.1_ASM1268v1_genomic_converted.fasta.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000331735.1_ASM33173v1_genomic.gbff.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_000331735.1_ASM33173v1_genomic_converted.fasta.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_017301635.1_ASM1730163v1_genomic.gbff.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.GCF_017301635.1_ASM1730163v1_genomic_converted.fasta.icloud" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/.ipynb_checkpoints/Genbank Parser-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/.ipynb_checkpoints/Genbank Parser-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/GCF_012933655.1_ASM1293365v1_genomic.gbff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/GCF_012933655.1_ASM1293365v1_genomic_converted.fasta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank Parser.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/Genbank Parser.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank2FAA.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/Genbank2FASTA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script-Workflow/Genbank2FASTA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/SequenceMultiple.gb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/SequenceMultiple_converted.fasta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/sequence.gb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script-Workflow/sequence_converted.fasta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,13 +39,16 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -98,7 +85,10 @@
       <workItem from="1627376998993" duration="748000" />
       <workItem from="1627459245956" duration="202000" />
       <workItem from="1628163505324" duration="140000" />
-      <workItem from="1628343476967" duration="635000" />
+      <workItem from="1628343476967" duration="947000" />
+      <workItem from="1628593469384" duration="1000" />
+      <workItem from="1634336691638" duration="97000" />
+      <workItem from="1634339964340" duration="281000" />
     </task>
     <servers />
   </component>
