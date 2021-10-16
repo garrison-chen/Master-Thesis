@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c3c2edb7-646b-4c00-91f6-a7975201cbe1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/schedule.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +47,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -88,7 +87,8 @@
       <workItem from="1628343476967" duration="947000" />
       <workItem from="1628593469384" duration="1000" />
       <workItem from="1634336691638" duration="97000" />
-      <workItem from="1634339964340" duration="281000" />
+      <workItem from="1634339964340" duration="439000" />
+      <workItem from="1634397192537" duration="2000" />
     </task>
     <servers />
   </component>
