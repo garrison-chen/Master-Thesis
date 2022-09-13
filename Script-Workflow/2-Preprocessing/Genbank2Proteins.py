@@ -1,5 +1,4 @@
-# Calling:
-# python Genbank2Proteins.py your-genbank-file-dir estimated-dir 
+# Calling: python Genbank2Proteins.py your-genbank-file-dir estimated-dir 
 
 import os
 import sys
@@ -161,14 +160,5 @@ with open(out_f_name, "w") as file:
 print("-----------------------------------------")
 print("Done :)")
 
-'''
-## TESTING, need to delete later
-random_prots = ['fldA', 'rpoA', 'yoaE', 'ymgG', 'ydiK', 'ybeL', 'cdsA', 'yqhC', 'rsxG', 'arcB', 'alkA', 'ycaL']
-for prot in random_prots:
-    out_f_name = "e_coli_" + prot + ".fasta"
-    with open(out_f_name, "w") as out_file:
-        for protein in proteins[prot]:
-            out_file.write(protein.return_fasta())
-'''
 # I might add a module that calls clustalo on each outputted protein to generate an MSA and maybe remove the original to save space
 # $clustalo -i all_proteins.fasta -o all_proteins.aln --threads 10 --distmat-out=all_proteins.mat --force --full --percent-id

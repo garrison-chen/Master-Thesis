@@ -1,4 +1,5 @@
 #!/bin/bash
+# Calling: bash download.sh accession-id-list.txt
 
 COUNTER=1
 while read p
@@ -11,10 +12,3 @@ do
    sleep 2
 done < ${1}
 
-
-#for i in 1 2 3 4 5
-#do
-#	echo "downloading the" $COUNTER "th strain"
-#	(( COUNTER++ ))
-#	((i++))
-#done
